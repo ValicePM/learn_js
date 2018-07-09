@@ -6,10 +6,11 @@
 </head>
 <body>
 <script>
-  var years = prompt("How old are you?", "" );
-  alert('You are ' + years + " years old!");
-  var my = confirm('You are my mummy?');
-  alert(my);
+  var myName = prompt('Как меня зовут?', '');
+  if (myName != 'Анна') alert('Неправильно! Подумайте лучше.');
+  else {
+      alert('Верно!')
+  };
 </script>
  </body>
 </html>
