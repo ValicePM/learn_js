@@ -6,10 +6,16 @@
 </head>
 <body>
 <script>
-  var myName = prompt('Как меня зовут?', '');
-  if (myName != 'Анна') alert('Неправильно! Подумайте лучше.');
+  var dataPublished = prompt('В каком году издали первую книгу о Гарри Поттере?', '');
+  if (dataPublished != '1997') alert('Неправильно, подумайте лучше!');
+  else if (dataPublished > 1997){
+    alert('Многовато')
+  }
+  else if (dataPublished < 1997){
+    alert('Маловато')
+  }
   else {
-      alert('Верно!')
+      alert('Верно!');
   };
 </script>
  </body>
