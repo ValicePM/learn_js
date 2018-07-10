@@ -6,16 +6,13 @@
 </head>
 <body>
 <script>
-  var dataPublished = prompt('В каком году издали первую книгу о Гарри Поттере?', '');
-  if (dataPublished > 1997){
-    alert('Это слишком рано...')
-  }
-  else if (dataPublished < 1997){
-    alert('Это поздновато...')
+  var nameCompany = prompt('Каково «официальное» название JavaScript?');
+  if (nameCompany == 'ECMAScript') {
+      alert('Верно!');
   }
   else {
-      alert('Верно, именно в этом году!');
-  };
+      alert('Не знаете? «ECMAScript»!');
+  }
 </script>
  </body>
 </html>
