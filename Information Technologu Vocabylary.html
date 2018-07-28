@@ -3,11 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+<style>
+    .str {
+        text-align: center;
+        height: 25px;
+    }
+     .str:hover {
+         background-color: #51AE3A;
+     }
 
+</style>
 </head>
 <body>
 
-
+<p id="eng"></p>
 
 
 <script>
@@ -388,8 +397,10 @@
         "    Workplace - (существительное" ;
 
     var substringArrayRu = myStringRu.split("\n");
-    for (var i=0; i < 100; i++ ) {
-        document.write(substringArray[i] + ')' + '  --- ' + substringArrayRu[i] + ')' + "<br>");
+    for (i=0; i < 100; i++) {
+        document.write("<p class='str'>" + substringArray[i] + ')' + '  --- ' + substringArrayRu[i] + ')' + "<br>" + "</p>");
+        /*var word =  substringArray[i] + ')' + '  --- ' + substringArrayRu[i] + ')' + "<br>";
+        document.getElementById('eng').innerHTML="<div>" + word + "</div>";*/
     }
 </script>
 </body>
