@@ -3,393 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-<style>
-    body{background-color: blanchedalmond;}
-    div{background-color: honeydew; width: max-content; margin-left: 20%;}
-    .str {
-        display: block;
-        font-size: large ;
-        padding-left: 20px;
-        padding-right: 20px;
-    }
-     .str:hover {
-         background-color: bisque;
-     }
-    .str-en{
-        float: left;
-        margin-left: 20px;
-    }
-    .str-ru{
-    float: right;
-       margin-right: 20px;
-    }
-</style>
+
 </head>
 <body>
+<div align="center">
+<textarea id="text" cols="35" rows="8" style="width:600px; height:150px;
+    color:#0C3A45; border:1px solid #CCCCCC; background:#F2F2F2;"></textarea>
+    <br>
+    <input id="send" type="button" value="В транслит" onclick="send()">
+</div>
+<div id="res"></div>
 
-<p id="eng"></p>
-<div>
+<script type='text/javascript'>
+   function send(){
+         var text=document.getElementById('text').value;
+        var transl=[];
+        transl['А']='A';     transl['а']='a';
+        transl['Б']='B';     transl['б']='b';
+        transl['В']='V';     transl['в']='v';
+        transl['Г']='G';     transl['г']='g';
+        transl['Д']='D';     transl['д']='d';
+        transl['Е']='E';     transl['е']='e';
+        transl['Ё']='Yo';    transl['ё']='yo';
+        transl['Ж']='Zh';    transl['ж']='zh';
+        transl['З']='Z';     transl['з']='z';
+        transl['И']='I';     transl['и']='i';
+        transl['Й']='J';     transl['й']='j';
+        transl['К']='K';     transl['к']='k';
+        transl['Л']='L';     transl['л']='l';
+        transl['М']='M';     transl['м']='m';
+        transl['Н']='N';     transl['н']='n';
+        transl['О']='O';     transl['о']='o';
+        transl['П']='P';     transl['п']='p';
+        transl['Р']='R';     transl['р']='r';
+        transl['С']='S';     transl['с']='s';
+        transl['Т']='T';     transl['т']='t';
+        transl['У']='U';     transl['у']='u';
+        transl['Ф']='F';     transl['ф']='f';
+        transl['Х']='X';     transl['х']='x';
+        transl['Ц']='C';     transl['ц']='c';
+        transl['Ч']='Ch';    transl['ч']='ch';
+        transl['Ш']='Sh';    transl['ш']='sh';
+        transl['Щ']='Shh';    transl['щ']='shh';
+        transl['Ъ']='"';     transl['ъ']='"';
+        transl['Ы']='Y\'';    transl['ы']='y\'';
+        transl['Ь']='\'';    transl['ь']='\'';
+        transl['Э']='E\'';    transl['э']='e\'';
+        transl['Ю']='Yu';    transl['ю']='yu';
+        transl['Я']='Ya';    transl['я']='ya';
 
-<script>
-       var myString = "Top Information Technology Vocabulary\n" +
-        "    Ability - (noun\n" +
-        "    Accounting - (noun\n" +
-        "    Addition - (noun\n" +
-        "    Adequate - (adjective\n" +
-        "    Administrator - (noun\n" +
-        "    Advance - (noun / verb\n" +
-        "    Analysis - (noun\n" +
-        "    Analysts - (noun\n" +
-        "    Analyze - (verb\n" +
-        "    Annual - (adjective\n" +
-        "    Application - (noun\n" +
-        "    Architect - (noun\n" +
-        "    Area - (noun\n" +
-        "    Arise - (verb\n" +
-        "    Associate - (noun / verb\n" +
-        "    Background - (noun\n" +
-        "    Business - (noun\n" +
-        "    Carpal - (adjective\n" +
-        "    Carrier - (noun\n" +
-        "    Certification - (noun\n" +
-        "    Chapter - (noun\n" +
-        "    Chief - (noun\n" +
-        "    Code - (noun / verb\n" +
-        "    Common - (adjective\n" +
-        "    Communicate - (verb\n" +
-        "    Communication - (noun\n" +
-        "    Competitive - (adjective\n" +
-        "    Computer - (noun\n" +
-        "    Computing - (noun\n" +
-        "    Concentrate - (noun / verb\n" +
-        "    Considerable - (adjective\n" +
-        "    Consultant - (noun\n" +
-        "    Consulting - (noun\n" +
-        "    Coordinate - (verb\n" +
-        "    Create - (verb\n" +
-        "    Customer - (noun\n" +
-        "    Cyber - (adjective\n" +
-        "    Data - (noun\n" +
-        "    Database - (noun\n" +
-        "    Deal - (noun / verb\n" +
-        "    Decline - (verb\n" +
-        "    Demand - (noun / verb\n" +
-        "    Design - (noun\n" +
-        "    Designer - (noun\n" +
-        "    Detailed - (adjective\n" +
-        "    Determine - (verb\n" +
-        "    Developer - (noun\n" +
-        "    Development - (noun\n" +
-        "    Discussion - (noun\n" +
-        "    Effectively - (adverb\n" +
-        "    Efficiency - (noun\n" +
-        "    Electronic - (adjective\n" +
-        "    Employ - (verb\n" +
-        "    Engineering - (noun\n" +
-        "    Engineer - (noun\n" +
-        "    Enterprise - (noun\n" +
-        "    Environment - (noun\n" +
-        "    Equipment - (noun\n" +
-        "    Expertise - (noun\n" +
-        "    Eyestrain - (noun\n" +
-        "    Finance - (noun\n" +
-        "    Financia l- (adjective\n" +
-        "    Firm - (noun\n" +
-        "    Force - (noun / verb\n" +
-        "    Function - (noun\n" +
-        "    Goal - (noun\n" +
-        "    Graduate - (noun / verb\n" +
-        "    Hardware - (noun\n" +
-        "    Implementation - (noun\n" +
-        "    Install - (verb\n" +
-        "    Institution - (noun\n" +
-        "    Instruction - (noun\n" +
-        "    Insurance - (noun\n" +
-        "    Integrate - (verb\n" +
-        "    Intranet - (noun\n" +
-        "    Introductory - (noun\n" +
-        "    Involved - (adjective\n" +
-        "    Keyboard - (noun\n" +
-        "    Knowledge - (noun\n" +
-        "    Laboratory - (noun\n" +
-        "    Language - (noun\n" +
-        "    Latest- (superlative adjective\n" +
-        "    Lead - (noun / verb\n" +
-        "    Leadership - (noun\n" +
-        "    Level - (noun\n" +
-        "    Location - (noun\n" +
-        "    Lowest - (superlative adjective\n" +
-        "    Maintain - (verb\n" +
-        "    Maintenance - (noun\n" +
-        "    Marketing - (noun\n" +
-        "    Mathematics - (noun\n" +
-        "    Matrix - (noun\n" +
-        "    Median - (noun\n" +
-        "    Mobile - (adjective\n" +
-        "    Monitor - (noun / verb\n" +
-        "    Nature - (noun\n" +
-        "    Network - (noun\n" +
-        "    Networking - (noun\n" +
-        "    Officer - (noun\n" +
-        "    Office - (noun\n" +
-        "    Offshore - (adjective\n" +
-        "    Order - (noun / verb\n" +
-        "    Organization - (noun\n" +
-        "    Outsourcing - (noun\n" +
-        "    Oversee - (verb\n" +
-        "    Pdf - (noun\n" +
-        "    Perform - (verb\n" +
-        "    Performance - (noun\n" +
-        "    Period - (noun\n" +
-        "    Plan - (noun / verb\n" +
-        "    Prevailing- (adjective\n" +
-        "    Problem - (noun\n" +
-        "    Process - (noun / verb\n" +
-        "    Product - (noun\n" +
-        "    Program - (noun / verb\n" +
-        "    Programmer - (noun\n" +
-        "    Project - (noun\n" +
-        "    Projections - (noun\n" +
-        "    Promoted - (adjective\n" +
-        "    Prospect - (noun\n" +
-        "    Provide - (verb\n" +
-        "    Publishing - (noun\n" +
-        "    Rapid - (adjective\n" +
-        "    Reduce - (verb\n" +
-        "    Relevant - (adjective\n" +
-        "    Remote - (adjective\n" +
-        "    Replace - (verb\n" +
-        "    Research - (noun / verb\n" +
-        "    Resource - (noun)\n" +
-        "    Respond - (verb)\n" +
-        "    Rounded - (adjective)\n" +
-        "    Sales - (noun)\n" +
-        "    Science - (noun\n" +
-        "    Scientific - (adjective\n" +
-        "    Scientist - (noun\n" +
-        "    Section - (noun\n" +
-        "    Security - (noun\n" +
-        "    Service - (noun\n" +
-        "    Simultaneously - (adverb\n" +
-        "    Site - (noun\n" +
-        "    Software - (noun\n" +
-        "    Sophisticated - (adjective\n" +
-        "    Specialist - (noun\n" +
-        "    Specialized - (adjective\n" +
-        "    Specific - (adjective\n" +
-        "    Spend - (verb\n" +
-        "    Staff - (noun\n" +
-        "    Statistic - (noun\n" +
-        "    Substantial - (adjective\n" +
-        "    Sufficient - (adjective\n" +
-        "    Support - (noun / verb\n" +
-        "    Syndrome - (noun\n" +
-        "    System - (noun\n" +
-        "    Task - (noun\n" +
-        "    Technical - (adjective\n" +
-        "    Technician - (noun\n" +
-        "    Technological - (adjective\n" +
-        "    Technology - (noun\n" +
-        "    Telecommunications - (noun\n" +
-        "    Title - (noun\n" +
-        "    Tool - (noun\n" +
-        "    Training - (noun\n" +
-        "    Transfer - (noun / verb\n" +
-        "    Uncommon - (adjective\n" +
-        "    Understanding - (noun\n" +
-        "    User - (noun\n" +
-        "    Variety - (noun\n" +
-        "    Vendor - (noun\n" +
-        "    Web - (noun\n" +
-        "    Webmaster - (noun\n" +
-        "    Wireless - (adjective\n" +
-        "    Worker - (noun\n" +
-        "    Workplace - (noun";
-    var substringArray = myString.split("\n");
-
-    var myStringRu = "Топ Словарный Запас Информационных Технологий\n" +
-        "Способность - (существительное\n" +
-        "    Бухгалтерия - (существительное\n" +
-        "    Дополнение - (существительное\n" +
-        "    Адекватный - (прилагательное\n" +
-        "    Администратор - (существительное\n" +
-        "    Advance - (существительные / глаголы\n" +
-        "    Анализ - (существительное\n" +
-        "    Аналитики - (существительное\n" +
-        "    Анализ - (глагол\n" +
-        "    Годовой - (прилагательное\n" +
-        "    Применение - (существительное\n" +
-        "    Архитектор - (существительное\n" +
-        "    Площадь - (существительное\n" +
-        "    Возникают - (глагол\n" +
-        "    Associate - (существительное / глагол\n" +
-        "    Фон - (существительное\n" +
-        "    Бизнес - (существительное\n" +
-        "    Carpal - (прилагательное\n" +
-        "    Carrier - (существительное\n" +
-        "    Сертификация - (существительное\n" +
-        "    Глава - (существительное\n" +
-        "    Chief - (существительные\n" +
-        "    Код - (существительное / глагол\n" +
-        "    Common - (прилагательное\n" +
-        "    Общаться - (глагол\n" +
-        "    Коммуникация - (существительное\n" +
-        "    Конкурсный - (прилагательное\n" +
-        "    Компьютер - (существительное\n" +
-        "    Computing - (существительное\n" +
-        "    Concentrate - (существительные / глаголы\n" +
-        "    Значительное - (прилагательное\n" +
-        "    Консультант - (существительные\n" +
-        "    Консалтинг - (существительные\n" +
-        "    Coordinate - (глагол\n" +
-        "    Create - (глагол\n" +
-        "    Заказчик - (существительное\n" +
-        "    Cyber - (прилагательное\n" +
-        "    Данные - (существительное\n" +
-        "    База данных - (существительное\n" +
-        "    Deal - (существительное / глагол\n" +
-        "    Decline - (глагол\n" +
-        "    Demand - (существительное / глагол\n" +
-        "    Дизайн - (существительное\n" +
-        "    Дизайнер - (существительное\n" +
-        "    Подробное - (прилагательное\n" +
-        "    Определить - (глагол\n" +
-        "    Разработчик - (существительные\n" +
-        "    Развитие - (существительное\n" +
-        "    Обсуждение - (существительное\n" +
-        "    Эффективно - (наречие\n" +
-        "    Эффективность - (существительное\n" +
-        "    Electronic - (прилагательное\n" +
-        "    Employ - (глагол\n" +
-        "    Инженерия - (существительное\n" +
-        "    Инженер - (существительное\n" +
-        "    Enterprise - (существительное\n" +
-        "    Окружающая среда - (существительное\n" +
-        "    Оборудование - (существительное\n" +
-        "    Экспертиза - (существительное\n" +
-        "    Eyestrain - (существительное\n" +
-        "    Финансы - (существительное\n" +
-        "    Financia l - (прилагательное\n" +
-        "    Фирма - (существительные\n" +
-        "    Force - (существительные / глаголы\n" +
-        "    Функция - (существительное\n" +
-        "    Цель - (существительное\n" +
-        "    Graduate - (существительные / глаголы\n" +
-        "    Hardware - (существительные\n" +
-        "    Реализация - (существительное\n" +
-        "    Install - (verb\n" +
-        "    Учреждение - (существительное\n" +
-        "    Инструкция - (существительное\n" +
-        "    Страхование - (существительное\n" +
-        "    Integrate - (глагол\n" +
-        "    Интранет - (существительное\n" +
-        "    Вводный - (существительное\n" +
-        "    Involved - (прилагательное\n" +
-        "    Клавиатура - (существительные\n" +
-        "    Знание - (существительное\n" +
-        "    Лаборатория - (существительное\n" +
-        "    Язык - (существительное\n" +
-        "    Последнее - (превосходное прилагательное\n" +
-        "    Lead - (существительные / глаголы\n" +
-        "    Лидерство - (существительные\n" +
-        "    Level - (существительное\n" +
-        "    Расположение - (существительное\n" +
-        "    Lowest - (превосходное прилагательное\n" +
-        "    Maintain - (глагол\n" +
-        "    Обслуживание - (существительное\n" +
-        "    Маркетинг - (существительное\n" +
-        "    Математика - (существительное\n" +
-        "    Matrix - (существительное\n" +
-        "    Median - (существительное\n" +
-        "    Mobile - (прилагательное\n" +
-        "    Monitor - (существительные / глаголы\n" +
-        "    Природа - (существительное\n" +
-        "    Сеть - (существительное\n" +
-        "    Networking - (существительное\n" +
-        "    Офицер - (существительное\n" +
-        "    Office - (существительные\n" +
-        "    Offshore - (прилагательное\n" +
-        "    Order - (существительное / глагол\n" +
-        "    Организация - (существительное\n" +
-        "    Аутсорсинг - (существительное\n" +
-        "    Курировать - (глагол\n" +
-        "    Pdf - (существительное\n" +
-        "    Perform - (глагол\n" +
-        "    Перформанс - (существительное\n" +
-        "    Период - (существительное\n" +
-        "    Plan - (существительные / глаголы\n" +
-        "    Преобладающие - (прилагательные\n" +
-        "    Проблема - (существительное\n" +
-        "    Процесс - (существительное / глагол\n" +
-        "    Продукт - (существительное\n" +
-        "    Программа - (существительные / глаголы\n" +
-        "    Программист - (существительное\n" +
-        "    Проект - (существительное\n" +
-        "    Проекции - (существительное\n" +
-        "    Provoted - (прилагательное\n" +
-        "    Prospect - (существительное\n" +
-        "    Provide - (verb\n" +
-        "    Издательство - (существительное\n" +
-        "    Rapid - (прилагательное\n" +
-        "    Уменьшить - (глагол\n" +
-        "    Relevant - (прилагательное\n" +
-        "    Remote - (прилагательное\n" +
-        "    Заменить - (глагол\n" +
-        "    Исследование - (существительные / глаголы\n" +
-        "    Resource - (noun)\n" +
-        "    Respond - (verb)\n" +
-        "    Rounded - (adjective)\n" +
-        "    Sales - (noun)\n" +
-        "    Наука - (существительное\n" +
-        "    Scientific - (прилагательное\n" +
-        "    Ученый - (существительное\n" +
-        "    Раздел - (существительное\n" +
-        "    Безопасность - (существительное\n" +
-        "    Сервис - (существительное\n" +
-        "    Одновременно - (наречие\n" +
-        "    Сайт - (существительное\n" +
-        "    Программное обеспечение - (существительное\n" +
-        "    Sophisticated - (прилагательное\n" +
-        "    Специалист - (существительное\n" +
-        "    Specialized - (прилагательное\n" +
-        "    Specific - (прилагательное\n" +
-        "    Тратить - (глагол\n" +
-        "    Staff - (существительное\n" +
-        "    Статистика - (существительное\n" +
-        "    Substantial - (прилагательное\n" +
-        "    Sufficient - (прилагательное\n" +
-        "    Поддержка - (существительные / глаголы\n" +
-        "    Синдром - (существительное\n" +
-        "    System - (существительное\n" +
-        "    Задача - (существительное\n" +
-        "    Технические - (прилагательное\n" +
-        "    Техник - (существительное\n" +
-        "    Технологическая - (прилагательное\n" +
-        "    Технология - (существительное\n" +
-        "    Телекоммуникации - (существительное\n" +
-        "    Название - (существительное\n" +
-        "    Tool - (существительное\n" +
-        "    Обучение - (существительное\n" +
-        "    Transfer - (существительное / глагол\n" +
-        "    Uncommon - (прилагательное\n" +
-        "    Понимание - (существительное\n" +
-        "    Пользователь - (существительное\n" +
-        "    Variety - (существительное\n" +
-        "    Vendor - (существительное\n" +
-        "    Web - (существительное\n" +
-        "    Вебмастер - (существительное\n" +
-        "    Wireless - (прилагательное\n" +
-        "    Worker - (существительное\n" +
-        "    Workplace - (существительное";
-
-    var substringArrayRu = myStringRu.split("\n");
-    var len = substringArrayRu.length;
-    for (i=0; i < len; i++) {
-        document.write("<p class='str'><span  class='str-en'>" + substringArray[i] + ')' + "</span>"  + "<span class='str-ru'>" + substringArrayRu[i] + ')'  + "</span>" + "<br>" + "</p>");
-        /*var word =  substringArray[i] + ')' + '  --- ' + substringArrayRu[i] + ')' + "<br>";
-        document.getElementById('eng').innerHTML="<div>" + word + "</div>";*/
+        var result='';
+        for(i=0;i<text.length;i++) {
+            if(transl[text[i]]!=undefined) { result+=transl[text[i]]; }
+            else { result+=text[i]; }
+        }
+        document.getElementById('res').innerHTML=result;
     }
 </script>
-</div>
 </body>
 </html>
